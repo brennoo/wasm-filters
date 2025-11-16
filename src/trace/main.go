@@ -25,12 +25,11 @@ import (
 
 	"github.com/valyala/fastjson"
 
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm"
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm/types"
+	"github.com/proxy-wasm/proxy-wasm-go-sdk/proxywasm"
+	"github.com/proxy-wasm/proxy-wasm-go-sdk/proxywasm/types"
 )
 
 // This was taken from APIClarity generated telemetry client api.
-// We cant import this module from there since it includes package net which is not supported yet by tinygo.
 type Telemetry struct {
 	DestinationAddress   string    `json:"destinationAddress,omitempty"`
 	DestinationNamespace string    `json:"destinationNamespace,omitempty"`
@@ -75,7 +74,9 @@ const (
 	defaultServiceMesh                = "istio"
 )
 
-func main() {
+func main() {}
+
+func init() {
 	proxywasm.SetVMContext(&vmContext{})
 }
 

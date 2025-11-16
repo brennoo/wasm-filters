@@ -59,20 +59,21 @@ After that you are good to go!
 
 ## Build and deploy your own filter
 
+### Requirements
+
+- Go 1.24 or later
+- Envoy >= 1.33.0
+
+### Building the filter
+
 You can build the filter using docker
 
 ```sh
 make docker_build
 ```
 
-If you want to build the filter without using docker you need to have tinygo installed
+If you want to build the filter without using docker, you need to have Go 1.24+ installed.
 
-On Mac:  
-```sh
-brew tap tinygo-org/tools  
-brew install tinygo
-```
-Then you can run 
 ```sh
 make build
 ```
@@ -87,10 +88,14 @@ export WASM_FILTER_BINARY_PATH=bin/http-trace-filter.wasm
 
 Then you can run the deploy script.
 
-##
-Current proxy-wasm-go-sdk version used is v0.13.0 Which supports istio 1.9.x, 1.10.x 
+## SDK Information
 
-proxy-wasm-go-sdk depends on TinyGo's WASI (WebAssembly System Interface) target which is introduced in v0.16.0.
+This project uses `github.com/proxy-wasm/proxy-wasm-go-sdk` which targets the standard Go compiler (Go 1.24+) with WASI reactor support.
 
-See https://github.com/tetratelabs/proxy-wasm-go-sdk for more details
+- **SDK**: `github.com/proxy-wasm/proxy-wasm-go-sdk`
+- **Go Version**: 1.24+
+- **Envoy Version**: >= 1.33.0
+- **Build Mode**: `GOOS=wasip1 GOARCH=wasm -buildmode=c-shared`
+
+See https://github.com/proxy-wasm/proxy-wasm-go-sdk for more details
 

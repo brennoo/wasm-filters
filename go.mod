@@ -1,8 +1,8 @@
 module github.com/openclarity/wasm-filters
 
-go 1.15
+go 1.24
 
 require (
-	github.com/tetratelabs/proxy-wasm-go-sdk v0.14.0
+	github.com/proxy-wasm/proxy-wasm-go-sdk v0.0.0-20250212164326-ab4161dcf924
 	github.com/valyala/fastjson v1.6.3
 )
